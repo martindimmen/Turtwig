@@ -18,7 +18,10 @@
       >
     </div>
   </div>
-  <div class="text-black" id="search">
+  <div
+    class="text-black w-full h-full grid justify-center items-center"
+    id="search"
+  >
     <PokemonSearch @search="updatePokemonName" />
     <PokemonDisplay :pokemonName="pokemonName" />
   </div>

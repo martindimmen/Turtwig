@@ -1,5 +1,5 @@
 <template>
-  <!-- Checks i Pokemon variable has a value, if it does the div gets rendered -->
+  <!-- Checks if the Pokemon variable has a value; if it does, the div gets rendered -->
   <div v-if="pokemon">
     <h2>{{ capitalizedPokemonName }}</h2>
     <img
@@ -9,25 +9,30 @@
     />
     <p>Height: {{ pokemon.height }}</p>
     <p>Weight: {{ pokemon.weight }}</p>
+    <p>
+      Type:
+      <span v-for="type in pokemon.types" :key="type.slot">
+        {{ type.type.name }}
+        //Checks if types are equal, if not add comma
+        <span v-if="type !== pokemon.types[pokemon.types.length - 1]">, </span>
+      </span>
+    </p>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import { debounce } from "lodash";
 
-//Export default object, which is the whole component
 export default {
   props: {
-    //Prop is used to pass data from a parent to child component
     pokemonName: String,
   },
   data() {
-    //Returns an object that contains the reactive data for this component.
     return {
       pokemon: null,
     };
   },
-  //Defines computed properties for the component.Checks if this.pokemon exists and has name, if it does capitalize it.
   computed: {
     capitalizedPokemonName() {
       if (this.pokemon && this.pokemon.name) {
@@ -39,9 +44,8 @@ export default {
       }
     },
   },
-  watch: {
-    //Watches if pokemonname changes, if changes HTTP request to PokeAPI
-    async pokemonName(newPokemonName) {
+  methods: {
+    fetchPokemon: debounce(async function (newPokemonName) {
       if (newPokemonName) {
         try {
           const response = await axios.get(
@@ -59,6 +63,11 @@ export default {
       } else {
         this.pokemon = null;
       }
+    }, 500),
+  },
+  watch: {
+    pokemonName(newPokemonName) {
+      this.fetchPokemon(newPokemonName);
     },
   },
 };
