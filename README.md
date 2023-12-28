@@ -17,3 +17,7 @@ Turtwig Pokedex is developed using the following technologies:
 - **Vue.js**: A popular JavaScript framework for building user interfaces.
 - **Tailwind CSS**: A utility-first CSS framework that allows for rapid UI development with pre-defined styles.
 - **Vite.js**: A fast and lightweight build tool for modern web applications.
+
+
+
+
