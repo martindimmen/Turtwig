@@ -19,5 +19,8 @@ Turtwig Pokedex is developed using the following technologies:
 - **Vite.js**: A fast and lightweight build tool for modern web applications.
 
 
+## How to run
 
-
+"""
+npm run dev
+"""
