@@ -21,15 +21,11 @@
       <div v-if="pokemon.stats" class="mt-4">
         <h3 class="text-lg font-semibold mb-2">Stats:</h3>
         <pokemon-stats-chart :stats="pokemon.stats"></pokemon-stats-chart>
-        <ul class="list-disc list-inside">
-          <li v-for="stat in pokemon.stats" :key="stat.stat.name">
-            {{ stat.stat.name | capitalize }}: {{ stat.base_stat }}
-          </li>
-        </ul>
       </div>
     </div>
   </div>
 </template>
+
 
 <script>
 import axios from "axios";

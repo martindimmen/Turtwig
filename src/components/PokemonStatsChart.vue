@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="chart-container">
       <canvas id="statsChart"></canvas>
     </div>
   </template>
@@ -22,7 +22,7 @@
         const statValues = this.stats.map(stat => stat.base_stat);
   
         new Chart(ctx, {
-          type: 'bar', // or 'line', 'pie', etc.
+          type: 'bar', 
           data: {
             labels: statNames,
             datasets: [{
@@ -36,7 +36,8 @@
           options: {
             scales: {
               y: {
-                beginAtZero: false
+                beginAtZero: true,
+                max:255,
               }
             }
           }
@@ -45,4 +46,23 @@
     }
   };
   </script>
+  
+  <style scoped>
+  .chart-container {
+    max-width: 400px; /* Adjust the max width as needed */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Add some extra styling for the canvas */
+  #statsChart {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  </style>
   
