@@ -21,6 +21,6 @@ Turtwig Pokedex is developed using the following technologies:
 
 ## How to run
 
-"""
+``
 npm run dev
-"""
+``
