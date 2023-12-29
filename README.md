@@ -1,4 +1,5 @@
 # Turtwig Pokedex
+![Turtwig](src/assets/turtwig.png)
 
 ## Introduction
 
@@ -24,3 +25,4 @@ Turtwig Pokedex is developed using the following technologies:
 ``
 npm run dev
 ``
+
